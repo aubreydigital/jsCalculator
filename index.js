@@ -19,7 +19,7 @@ const decimal = document.querySelector('.decimal')
 const percent = document.querySelector('.percent')
 const plusOrMinus = document.querySelector('.plusOrMinus')
 let firstNumber = 0;
-let secondNumber;
+let secondNumber = 0;
 let operation = '';
 
 
@@ -34,6 +34,9 @@ const plusOp = () => {
     operation = 'plus'
     firstNumber = parseFloat(firstNumber)
     secondNumber = parseFloat(secondNumber)
+    if (firstNumber !== 0) {
+        plus.style.backgroundColor = 'rgb(146, 189, 191)';
+    }
     console.log(operation)
 }
 
@@ -41,6 +44,9 @@ const multiplyOp = () => {
     operation = 'multiply'
     firstNumber = parseFloat(firstNumber)
     secondNumber = parseFloat(secondNumber)
+    if (firstNumber !== 0) {
+        multiply.style.backgroundColor = 'rgb(146, 189, 191)';
+    }
     console.log(firstNumber)
     console.log(operation)
 }
@@ -49,12 +55,18 @@ const divideOp = () => {
     operation = 'divide'
     firstNumber = parseFloat(firstNumber)
     secondNumber = parseFloat(secondNumber)
+    if (firstNumber !== 0) {
+        divide.style.backgroundColor = 'rgb(146, 189, 191)';
+    }
     console.log(operation)
 }
-const minusOp = () => {
+const minusOp = (e) => {
     operation = 'minus'
     firstNumber = parseFloat(firstNumber)
     secondNumber = parseFloat(secondNumber)
+    if (firstNumber !== 0) {
+        minus.style.backgroundColor = 'rgb(146, 189, 191)';
+    }
     console.log(operation)
 }
 const number9 = () => {
@@ -248,21 +260,28 @@ const equalsOp = () => {
         display.innerHTML = `<h1>${firstNumber + secondNumber}</h1>`
         firstNumber = firstNumber + secondNumber
         secondNumber = 0
+        plus.style.backgroundColor = 'rgb(95, 158, 160)'
     } else if (operation === 'multiply') {
         secondNumber = parseFloat(secondNumber)
         display.innerHTML = `<h1>${firstNumber * secondNumber}</h1>`
         firstNumber = firstNumber * secondNumber
         secondNumber = 0
+        multiply.style.backgroundColor = 'rgb(95, 158, 160)'
+
     } else if (operation === 'divide') {
         secondNumber = parseFloat(secondNumber)
         display.innerHTML = `<h1>${firstNumber / secondNumber}</h1>`
         firstNumber = firstNumber / secondNumber
         secondNumber = 0
+        divide.style.backgroundColor = 'rgb(95, 158, 160)'
+
     } else if (operation === 'minus') {
         secondNumber = parseFloat(secondNumber)
         display.innerHTML = `<h1>${firstNumber - secondNumber}</h1>`
         firstNumber = firstNumber - secondNumber
         secondNumber = 0
+        minus.style.backgroundColor = 'rgb(95, 158, 160)'
+
     }
 }
 
@@ -292,8 +311,106 @@ const toPlusOrMinus = () => {
         display.innerHTML = `<h1>${secondNumber}</h1>`
     }
 }
+document.addEventListener('keydown', logKey);
+document.addEventListener('keyup', logKeyUp);
+function logKeyUp(e) {
+    console.log(e)
+}
+function logKey(e) {
+    console.log(e);
+    switch(e.code) {
+        case 'Digit0':
+            number0();
+            break;
+        case 'Digit1':
+            number1();
+            break;
+        case 'Digit2':
+            number2();
+            break;
+        case 'Digit3':
+            number3();
+            break;
+        case 'Digit4':
+            number4();
+            break;
+        case 'Digit5':
+            number5();
+            break;
+        case 'Digit6':
+            number6();
+            break;
+        case 'Digit7':
+            number7();
+            break;
+        case 'Digit8':
+            number8();
+            break;
+        case 'Digit9':
+            number9();
+            break;
+        case 'Numpad0':
+            number0();
+            break;
+        case 'Numpad1':
+            number1();
+            break;
+        case 'Numpad2':
+            number2();
+            break;
+        case 'Numpad3':
+            number3();
+            break;
+        case 'Numpad4':
+            number4();
+            break;
+        case 'Numpad5':
+            number5();
+            break;
+        case 'Numpad6':
+            number6();
+            break;
+        case 'Numpad7':
+            number7();
+            break;
+        case 'Numpad8':
+            number8();
+            break;
+        case 'Numpad9':
+            number9();
+            break;
+        case 'KeyC':
+            clearCalculator();
+            break;
+        case 'Minus':
+            minusOp();
+            break;
+        case 'NumpadSubtract':
+            minusOp();
+            break;
+        case 'NumpadAdd':
+                plusOp();
+                break;
+        case 'NumpadMultiply':
+            multiplyOp();
+            break;
+        case 'NumpadDivide':
+            divideOp();
+            break;
+        case 'NumpadEnter':
+            equalsOp();
+            break;
+        case 'Enter':
+            equalsOp();
+            break;
+        case 'Equal':
+            equalsOp();
+            break;
+    }
 
-clearBtn.addEventListener('click', () => clearCalculator())
+  }
+
+clearBtn.addEventListener('click', () => clearCalculator)
 digit9.addEventListener('click', () => number9())
 digit8.addEventListener('click', () => number8())
 digit7.addEventListener('click', () => number7())
