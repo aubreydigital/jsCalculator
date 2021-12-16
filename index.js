@@ -260,27 +260,27 @@ const equalsOp = () => {
         display.innerHTML = `<h1>${firstNumber + secondNumber}</h1>`
         firstNumber = firstNumber + secondNumber
         secondNumber = 0
-        plus.style.backgroundColor = 'rgb(95, 158, 160)'
+        plus.style.backgroundColor = 'cornflowerblue'
     } else if (operation === 'multiply') {
         secondNumber = parseFloat(secondNumber)
         display.innerHTML = `<h1>${firstNumber * secondNumber}</h1>`
         firstNumber = firstNumber * secondNumber
         secondNumber = 0
-        multiply.style.backgroundColor = 'rgb(95, 158, 160)'
+        multiply.style.backgroundColor = 'cornflowerblue'
 
     } else if (operation === 'divide') {
         secondNumber = parseFloat(secondNumber)
         display.innerHTML = `<h1>${firstNumber / secondNumber}</h1>`
         firstNumber = firstNumber / secondNumber
         secondNumber = 0
-        divide.style.backgroundColor = 'rgb(95, 158, 160)'
+        divide.style.backgroundColor = 'cornflowerblue'
 
     } else if (operation === 'minus') {
         secondNumber = parseFloat(secondNumber)
         display.innerHTML = `<h1>${firstNumber - secondNumber}</h1>`
         firstNumber = firstNumber - secondNumber
         secondNumber = 0
-        minus.style.backgroundColor = 'rgb(95, 158, 160)'
+        minus.style.backgroundColor = 'cornflowerblue'
 
     }
 }

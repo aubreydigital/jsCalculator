@@ -3,6 +3,8 @@
 }
 
 .container {
+    max-height: 100vh;
+    margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: 100px;
@@ -29,6 +31,7 @@
 }
 .container > div:hover {
     cursor: pointer;
+    transform: scale(0.98);
 }
 
 .container > div > h1 {
@@ -42,7 +45,7 @@
 }
 
 .display {
-    grid-column: 1/5;
+    grid-column: 1/-1;
     /* height: 100px; */
 
 
